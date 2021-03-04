@@ -83,4 +83,19 @@ function chooseColor() {
     return colors[random]
 }
 
+function genColors(num) {
+    var arr = []
+    for (var i = 0; i < num; i++) {
+        arr.push(makeColor())
+    }
+    return arr
+}
+
+function makeColor() {
+    var r = Math.floor(Math.random() * 256)
+    var g = Math.floor(Math.random() * 256)
+    var b = Math.floor(Math.random() * 256)
+    return "rgb(" + r + ", " + g + ", " + b + ")"
+}
+
 init()
