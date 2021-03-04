@@ -62,7 +62,7 @@ function reset() {
 	colors = genColors(numSquares)
 	selectedColor = chooseColor()
 	colorDisplay.textContent = selectedColor
-	h1.style.backgroundColor = '#ffab73'
+	h1.style.backgroundColor = '#bbdfc8'
 	resetButton.textContent = 'New Colors'
 	messageDisplay.textContent = ''
 	for (var i = 0; i < squares.length; i++) {
