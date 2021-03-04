@@ -37,4 +37,21 @@ function reset() {
     }
 }
 
+function setupSquares() {
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors [i]
+        squares[i].addEventListener('click', function() {
+            var clickedColor = this.style.backgroundColor
+            if(clickedColor === selectedColor) {
+                messageDisplay.textContent = 'Correct'
+                reset.textContent = 'Play Again'
+                changeColors(selectedColor)
+            } else {
+                this.style.backgroundColor = '#ffffff'
+                messageDisplay.textContent ='Try Again'
+            }
+        })
+    }
+}
+
 init()
