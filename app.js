@@ -9,6 +9,8 @@ var reset = document.querySelector('#reset')
 var mode = document.querySelectorAll('.mode')
 var easy = document.querySelector('.mode')
 
+init()
+
 function init(){
     colorDisplay.textContent = selectedColor
     setupSquares()
@@ -20,23 +22,6 @@ reset.addEventListener('click', function() {
     reset()
 })
 
-function reset() {
-    colors = genColors(numSquares)
-    selectedColor = chooseColor()
-    colorDisplay.textContent = selectedColor
-    h1.style.backgroundColor = '#ffffff'
-    reset.textContent = 'New Colors'
-    messageDisplay.textContent = ''
-    for(var i = 0; i < squares.length; i++) {
-        if(colors[i]) {
-            squares[i].style.display = 'block'
-            squares[i].style.backgroundColor = colors[i]
-        } else {
-            squares[i].style.display = 'none'
-        }
-    }
-}
-
 function setupSquares() {
     for (var i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = colors[i]
@@ -47,7 +32,7 @@ function setupSquares() {
                 reset.textContent = 'Play Again'
                 changeColors(selectedColor)
             } else {
-                this.style.backgroundColor = '#ffffff'
+                this.style.backgroundColor = '#232323'
                 messageDisplay.textContent ='Try Again'
             }
         })
@@ -68,6 +53,23 @@ function setupMode() {
             }
             reset()
         })
+    }
+}
+
+function reset() {
+    colors = genColors(numSquares)
+    selectedColor = chooseColor()
+    colorDisplay.textContent = selectedColor
+    h1.style.backgroundColor = '#2C8E99'
+    reset.textContent = 'New Colors'
+    messageDisplay.textContent = ''
+    for(var i = 0; i < squares.length; i++) {
+        if(colors[i]) {
+            squares[i].style.display = 'block'
+            squares[i].style.backgroundColor = colors[i]
+        } else {
+            squares[i].style.display = 'none'
+        }
     }
 }
 
@@ -98,4 +100,3 @@ function makeColor() {
     return "rgb(" + r + ", " + g + ", " + b + ")"
 }
 
-init()
