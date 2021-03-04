@@ -8,3 +8,10 @@ var h1 = document.querySelector('h1')
 var reset = document.querySelector('#reset')
 var mode = document.querySelectorAll('.mode')
 var easy = document.querySelector('.mode')
+
+function init(){
+    colorDisplay.textContent = selectedColor
+    setupSquares()
+    setupMode()
+    reset()
+}
