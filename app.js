@@ -15,3 +15,26 @@ function init(){
     setupMode()
     reset()
 }
+
+reset.addEventListener('click', function() {
+    reset()
+})
+
+function reset() {
+    colors = genColors(numSquares)
+    selectedColor = chooseColor()
+    colorDisplay.textContent = selectedColor
+    h1.style.backgroundColor = '#ffffff'
+    reset.textContent = 'New Colors'
+    messageDisplay.textContent = ''
+    for(var i = 0; i < squares.length; i++) {
+        if(colors[i]) {
+            squares[i].style.display = 'block'
+            squares[i].style.backgroundColor = colors[i]
+        } else {
+            squares[i].style.display = 'none'
+        }
+    }
+}
+
+init()
