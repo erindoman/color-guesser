@@ -39,7 +39,7 @@ function reset() {
 
 function setupSquares() {
     for (var i = 0; i < squares.length; i++) {
-        squares[i].style.backgroundColor = colors [i]
+        squares[i].style.backgroundColor = colors[i]
         squares[i].addEventListener('click', function() {
             var clickedColor = this.style.backgroundColor
             if(clickedColor === selectedColor) {
@@ -52,6 +52,35 @@ function setupSquares() {
             }
         })
     }
+}
+
+function setupMode() {
+    for(var i = 0; i < mode.length; i++){
+        mode[i].addEventListener('click', function() {
+            for (var i = 0; i < mode.length; i++) {
+                mode[i].classList.remove('selected')
+            }
+            this.classList.add('selected')
+            if (this.textContent === "Easy") {
+                numSquares = 3
+            } else {
+                numSquares = 6
+            }
+            reset()
+        })
+    }
+}
+
+function changeColors(color){
+    for(var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = color
+        h1.style.backgroundColor = color
+    }
+}
+
+function chooseColor() {
+    var random = Math.floor(Math.random() * colors.length)
+    return colors[random]
 }
 
 init()
