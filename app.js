@@ -1,13 +1,13 @@
-var numSquares = 6
-var colors = []
-var selectedColor
-var squares = document.querySelectorAll('.square')
-var colorDisplay = document.querySelector('#color-display')
-var messageDisplay = document.querySelector('#message')
-var h1 = document.querySelector('h1')
-var resetButton = document.querySelector('#reset')
-var mode = document.querySelectorAll('.mode')
-var easy = document.querySelector('.mode')
+let numSquares = 6
+let colors = []
+let selectedColor
+let squares = document.querySelectorAll('.square')
+let colorDisplay = document.querySelector('#color-display')
+let messageDisplay = document.querySelector('#message')
+let h1 = document.querySelector('h1')
+let resetButton = document.querySelector('#reset')
+let mode = document.querySelectorAll('.mode')
+let easy = document.querySelector('.mode')
 
 init();
 
@@ -23,10 +23,10 @@ resetButton.addEventListener("click", function() {
 });
 
 function setupSquares() {
-	for (var i = 0; i < squares.length; i++) {
+	for (let i = 0; i < squares.length; i++) {
 		squares[i].style.backgroundColor = colors[i];
 		squares[i].addEventListener("click", function() {
-			var clickedColor = this.style.backgroundColor;
+			let clickedColor = this.style.backgroundColor;
 			if(clickedColor === selectedColor) {
 				messageDisplay.textContent = "Correct";
 				resetButton.textContent = "Play Again";
@@ -43,7 +43,7 @@ function setupSquares() {
 function setupMode() {
 	for(var i = 0; i < mode.length; i++) {
 		mode[i].addEventListener("click", function() {
-			for (var i = 0; i < mode.length; i++) {
+			for (let i = 0; i < mode.length; i++) {
 				mode[i].classList.remove("selected")
 			}
 			this.classList.add("selected")
@@ -65,7 +65,7 @@ function reset() {
 	h1.style.backgroundColor = '#bbdfc8'
 	resetButton.textContent = 'New Colors'
 	messageDisplay.textContent = ''
-	for (var i = 0; i < squares.length; i++) {
+	for (let i = 0; i < squares.length; i++) {
 		if(colors[i]) { 
 			squares[i].style.display = 'block'
 			squares[i].style.backgroundColor = colors[i]
@@ -76,7 +76,7 @@ function reset() {
 }
 
 function changeColors(color){
-    for(var i = 0; i < squares.length; i++) {
+    for(let i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor = color
         h1.style.backgroundColor = color
     }
@@ -89,7 +89,7 @@ function chooseColor() {
 
 function genColors(num) {
     var arr = []
-    for (var i = 0; i < num; i++) {
+    for (let i = 0; i < num; i++) {
         arr.push(makeColor())
     }
     return arr
